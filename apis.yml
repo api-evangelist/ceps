@@ -3,10 +3,10 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/ceps/refs/heads/main/apis.yml
 name: CEPS
 tags:
-  - Policy
   - European Union
-  - Think Tank
+  - Policy
   - Research
+  - Think Tank
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
@@ -21,8 +21,8 @@ apis:
   - aid: ceps:ceps
     name: CEPS
     tags:
-      - Policy
       - European Union
+      - Policy
     humanURL: https://www.ceps.eu/
     properties:
       - url: https://www.ceps.eu/
