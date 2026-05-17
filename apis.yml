@@ -84,7 +84,7 @@ common:
     url: https://knowledge4policy.ec.europa.eu/organisation/ceps-centre-european-policy-studies_en
   - type: Wikipedia
     url: https://en.wikipedia.org/wiki/Centre_for_European_Policy_Studies
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.ceps.eu/privacy-policy/
 maintainers:
   - FN: Kin Lane
