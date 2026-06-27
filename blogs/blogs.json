@@ -3,13 +3,15 @@
   "feeds": [
     {
       "source": "https://www.ceps.eu/feed/",
-      "error": "HTTPError"
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     },
     {
-      "source": "https://www.ceps.eu/events/",
-      "error": "HTTPError"
+      "source": "https://www.ceps.eu/ceps-publications/",
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     }
   ],
-  "fetched": "2026-06-14T20:42:17Z",
+  "fetched": "2026-06-27T12:32:00Z",
   "post_count": 0
 }
