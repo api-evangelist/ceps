@@ -68,6 +68,8 @@ apis:
       meetings, and webinars that can be embedded or syndicated via the
       public events listing pages.
 common:
+  - type: DomainSecurity
+    url: security/ceps-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/ceps
   - type: Website
