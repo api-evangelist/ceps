@@ -66,6 +66,11 @@ apis:
     name: CEPS Events Listings
     tags:
       - Calendar
+      - Event
+      - Policy Forum
+      - Webinars
+    tags_raw:
+      - Calendar
       - Events
       - Policy Forum
       - Webinars
