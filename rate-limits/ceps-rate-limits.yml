@@ -1,101 +1,37 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: CEPS (Centre for European Policy Studies)
-providerId: ceps
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - Brussels
-  - Data Governance
-  - EU Policy
-  - European Union
-  - Policy Research
-  - Publications
-  - RSS
-  - Research
-  - Think Tank
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the CEPS (Centre for European Policy Studies)
-  API surface. Captures per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults
-  are scaffold values to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - CEPS Publications RSS / Content Feeds
-      - CEPS Events Listings
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - CEPS Publications RSS / Content Feeds
-      - CEPS Events Listings
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - CEPS Publications RSS / Content Feeds
-      - CEPS Events Listings
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - CEPS Publications RSS / Content Feeds
-      - CEPS Events Listings
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - CEPS Publications RSS / Content Feeds
-      - CEPS Events Listings
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+generated: '2026-09-05'
+method: searched
+source: https://www.ceps.eu/
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+note: >-
+  CEPS publishes no API and therefore no rate limits. This file previously held a five-row
+  scaffold written by the 2026-05-04 bulk sweep — 10/100/1000 requests per minute by tier, a
+  full X-RateLimit-Limit / X-RateLimit-Remaining / X-RateLimit-Reset / Retry-After /
+  RateLimit-Policy header set, and 429/503 exhaustion codes — none of which CEPS has ever
+  published or served. It is replaced here by the measured zero. What the site actually enforces
+  on automated clients is a Cloudflare managed challenge (HTTP 403 with a "Just a moment..."
+  interstitial, ~5.7 KB), which fires unpredictably across ceps.eu paths and on every ceps.eu
+  subdomain root; that is bot mitigation, not a documented, header-signalled rate limit, and is
+  deliberately not recorded as one.
+searched:
+  - url: https://www.ceps.eu/
+    status: 200
+    result: no developer or API documentation of any kind, so no limits section to read
+  - url: https://www.ceps.eu/robots.txt
+    status: 200
+    result: >-
+      crawl directives only (Disallow /wp-json/, /feed/, /*/feed/, /wp-admin/, /?s=); no
+      Crawl-delay and no rate guidance
+observed_edge_behaviour:
+  mechanism: Cloudflare managed challenge
+  observed_status: 403
+  observed_body_bytes: ~5700
+  is_documented_rate_limit: false
+  note: >-
+    Recorded as context, not as a limit. Per the pipeline's own rule a bot challenge is not a
+    dead page and is not a published quota.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

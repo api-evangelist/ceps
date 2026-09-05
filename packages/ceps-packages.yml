@@ -1,0 +1,55 @@
+generated: '2026-09-05'
+method: searched
+source: >-
+  npm registry search, PyPI JSON API, RubyGems API, crates.io API and the ceps.eu site
+  navigation (2026-09-05)
+provider: CEPS (Centre for European Policy Studies)
+providerId: ceps
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  No first-party CEPS client library exists in any public registry. CEPS publishes no API and
+  therefore no SDK. Every registry hit on the string "ceps" belongs to an unrelated Brazilian
+  postal-code ("CEP") library and was rejected on the STEP 0c ownership rule: the RubyGems gem
+  `ceps` 0.0.8 is authored by Thiago Miranda and describes "every brazilian cep"; the npm hits
+  (busca-cep, brasil-ceps-offline, cepdistance-promise, endereco-facil) and the crates.io hit
+  (brazilian_utils) are the same false-positive family. `version:` and `published:` are recorded
+  as null across the board because there is no first-party package to read metadata for — this is
+  a checked absence, not an unchecked field.
+searched:
+  - registry: npm
+    query: ceps, ceps-eu, centre-for-european-policy-studies
+    endpoint: https://registry.npmjs.org/-/v1/search
+    status: 200
+    first_party_hits: 0
+  - registry: pypi
+    query: ceps, ceps-eu, centre-for-european-policy-studies
+    endpoint: https://pypi.org/pypi/<name>/json
+    status: 404
+    first_party_hits: 0
+  - registry: rubygems
+    query: ceps
+    endpoint: https://rubygems.org/api/v1/gems/ceps.json
+    status: 200
+    first_party_hits: 0
+    rejected: >-
+      ceps 0.0.8 — "All sorts of useful information about every brazilian cep"; author Thiago
+      Miranda; homepage github.com/theprogramer/ceps. Not CEPS.
+  - registry: crates.io
+    query: ceps
+    endpoint: https://crates.io/api/v1/crates?q=ceps
+    status: 200
+    first_party_hits: 0
+  - registry: github
+    query: CEPS organization
+    endpoint: https://api.github.com/users/ceps-eu
+    status: 200
+    first_party_hits: 0
+    rejected: >-
+      github.com/ceps-eu is an empty Organization created 2026-09-02 with 0 public repos, no
+      name, no blog and no location. Nothing ties it to ceps.eu, so ownership is unproven and
+      no GitHubOrganization pointer was emitted.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

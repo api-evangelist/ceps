@@ -1,0 +1,72 @@
+generated: '2026-09-05'
+method: probed
+source: >-
+  live probes of www.ceps.eu (2026-09-05) plus the repo's own blogs/blogs.json fetch log
+  (2026-08-30)
+provider: CEPS (Centre for European Policy Studies)
+providerId: ceps
+summary: >-
+  CEPS publishes no API, and therefore no API versioning policy, deprecation policy, SLA or
+  status page. What this file records is a real, dated retirement of the one machine-readable
+  surface CEPS used to serve: the site-wide WordPress RSS feed. It is kept so a later pass can
+  see the change rather than re-discover it.
+versioning:
+  scheme: none
+  policy_url: null
+  note: No API, so no versioning scheme is published.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No RFC 8594 Sunset/Deprecation signalling and no published deprecation policy. The feed
+    retirement below was not announced anywhere we could find — it simply began returning 500.
+sla:
+  published: false
+  url: null
+status_page:
+  published: false
+  url: null
+  note: >-
+    No status.ceps.eu, no statuspage.io / Atlassian / Instatus tenant, and no status link in the
+    site navigation or footer. No StatusPage pointer emitted.
+retirements:
+  - surface: Site-wide RSS feed
+    url: https://www.ceps.eu/feed/
+    previous_type: RSS
+    observed_status: 500
+    observed: '2026-09-05'
+    body: >-
+      WordPress wp_die error document — "No feed available, please visit the homepage!" —
+      served as XML with <status>500</status>.
+    corroboration: >-
+      blogs/blogs.json in this repo records the same host failing on 2026-08-30 for both
+      https://www.ceps.eu/feed/ and https://www.ceps.eu/events/, with post_count 0.
+    also: >-
+      robots.txt additionally carries "Disallow: /feed/" and "Disallow: /*/feed/", so even a
+      working feed would be off-limits to a well-behaved crawler.
+    consequence: >-
+      The RSS pointer previously carried in apis.yml common[] and in the publications API entry
+      was a false claim and has been removed. This is the surface CEPS most cheaply could
+      restore — a working feed is the whole of its programmable posture.
+  - surface: Events listing page (old path)
+    url: https://www.ceps.eu/events/
+    observed_status: 404
+    observed: '2026-09-05'
+    replaced_by: https://www.ceps.eu/ceps-events/
+  - surface: News listing page (old path)
+    url: https://www.ceps.eu/news/
+    observed_status: 404
+    observed: '2026-09-05'
+    replaced_by: https://www.ceps.eu/ceps-news/
+  - surface: Privacy policy (old path)
+    url: https://www.ceps.eu/privacy-policy/
+    observed_status: 404
+    observed: '2026-09-05'
+    replaced_by: https://www.ceps.eu/about-ceps/data-privacy-policy/
+    note: >-
+      All three moved when CEPS re-platformed onto its current WordPress theme; the old paths
+      return the site 404 template ("Page not found — CEPS") with no redirect.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -9,7 +9,6 @@ tags:
   - European Union
   - Policy Research
   - Publications
-  - RSS
   - Research
   - Think Tank
 type: Index
@@ -25,54 +24,63 @@ deliveryModel:
   generated: '2026-08-28'
   method: derived
 accessModel:
-  pricing: freemium
-  onboarding: unknown
+  pricing: free
+  onboarding: none
   trial: false
   try_now: false
-  public: false
-  label: Freemium
-  confidence: medium
+  public: true
+  label: Free public web content, no programmatic access
+  confidence: high
   source:
   - plans
-  generated: '2026-07-22'
-  method: derived
+  - probe
+  generated: '2026-09-05'
+  method: probed
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ceps.png
 access: 3rd-Party
 created: '2026-01-02'
-modified: '2026-04-23'
+modified: '2026-09-05'
 position: Consuming
 specificationVersion: '0.23'
 description: >-
   Founded in Brussels in 1983, the Centre for European Policy Studies (CEPS)
   is a leading independent think tank and forum for debate on EU affairs,
-  with an exceptionally strong in-house research capacity and an extensive
-  network of partner institutes. CEPS conducts rigorous, evidence-based
-  policy research on European and global issues (Data Governance Act, Data
-  Act, AI Act, climate, migration, financial markets) and disseminates its
-  findings primarily through publications, events, and podcasts rather than
-  a commercial API; programmatic access to CEPS output is primarily via
-  public RSS, OPML feeds, and structured publication pages on ceps.eu.
+  with strong in-house research capacity and an extensive network of partner
+  institutes. CEPS conducts evidence-based policy research on European and
+  global issues (Data Governance Act, Data Act, AI Act, climate, energy,
+  migration, trade, defence, financial markets) and disseminates it through
+  publications, events, task forces and podcasts rather than through any
+  programmatic interface. CEPS publishes no API, SDK or developer program,
+  and as of 2026-09-05 has no working machine-readable surface: the RSS feed
+  this record once pointed at returns HTTP 500 ("No feed available") and is
+  robots-disallowed, and no OpenAPI, AsyncAPI, GraphQL SDL, MCP server, A2A
+  agent card or /.well-known/ document exists on any ceps.eu host. Following
+  CEPS now means the newsletter or the HTML listings on ceps.eu.
 apis:
   - aid: ceps:ceps-publications-feed
     name: CEPS Publications RSS / Content Feeds
     tags:
-      - Atom
       - Content
       - Publications
-      - RSS
+      - Research Output
     humanURL: https://www.ceps.eu/ceps-publications/
     properties:
       - url: https://www.ceps.eu/ceps-publications/
         type: Website
-      - url: https://www.ceps.eu/feed/
-        type: RSS
-      - url: https://www.ceps.eu/news/
+      - url: https://www.ceps.eu/ceps-news/
         type: News
     description: >-
-      CEPS exposes its publications and news stream as RSS/Atom feeds that
-      aggregators, knowledge management tools, and policy-monitoring
-      platforms can consume to track CEPS working papers, policy insights,
-      reports, and commentaries as they are released.
+      CEPS publishes roughly 150 working papers, policy insights, reports and
+      commentaries a year across some 20 policy topics, listed on the public
+      publications page and filterable by topic. This entry was originally
+      recorded because CEPS syndicated that stream as RSS/Atom, but the feed
+      at https://www.ceps.eu/feed/ was probed on 2026-09-05 and returns HTTP
+      500 with the WordPress body "No feed available, please visit the
+      homepage!"; robots.txt additionally disallows /feed/ and /*/feed/. The
+      dead RSS and Feed pointers have been removed rather than left standing
+      as a claim CEPS no longer serves. What remains is an HTML listing with
+      no machine-readable contract; see lifecycle/ceps-lifecycle.yml for the
+      retirement record and the evidence behind it.
   - aid: ceps:ceps-events
     name: CEPS Events Listings
     tags:
@@ -85,19 +93,25 @@ apis:
       - Events
       - Policy Forum
       - Webinars
-    humanURL: https://www.ceps.eu/events/
+    humanURL: https://www.ceps.eu/ceps-events/
     properties:
-      - url: https://www.ceps.eu/events/
+      - url: https://www.ceps.eu/ceps-events/
         type: Website
-      - url: https://www.ceps.eu/feed/
-        type: Feed
     description: >-
-      CEPS maintains a calendar of policy events, conferences, task force
-      meetings, and webinars that can be embedded or syndicated via the
-      public events listing pages.
+      CEPS maintains a public calendar of policy events, conferences, task
+      force meetings, roundtables and webinars at /ceps-events/, filterable
+      by event type and by upcoming/past state through query parameters. The
+      listing is HTML only — there is no iCal, JSON or feed representation,
+      and the /feed/ endpoint this entry previously pointed at now returns
+      HTTP 500. The old /events/ path returns the site 404 template with no
+      redirect and has been corrected here.
 common:
   - type: DomainSecurity
     url: security/ceps-domain-security.yml
+  - type: Lifecycle
+    url: lifecycle/ceps-lifecycle.yml
+  - type: LLMsTxt
+    url: llms/ceps-llms.txt
   - type: LinkedIn
     url: https://www.linkedin.com/company/ceps
   - type: Website
@@ -107,17 +121,44 @@ common:
   - type: Publications
     url: https://www.ceps.eu/ceps-publications/
   - type: News
-    url: https://www.ceps.eu/news/
+    url: https://www.ceps.eu/ceps-news/
   - type: Events
-    url: https://www.ceps.eu/events/
-  - type: RSS
-    url: https://www.ceps.eu/feed/
+    url: https://www.ceps.eu/ceps-events/
+  - type: Blog
+    url: https://www.ceps.eu/ceps-latest/
+  - type: Support
+    url: https://www.ceps.eu/contact/
   - type: Knowledge4Policy
     url: https://knowledge4policy.ec.europa.eu/organisation/ceps-centre-european-policy-studies_en
   - type: Wikipedia
     url: https://en.wikipedia.org/wiki/Centre_for_European_Policy_Studies
   - type: PrivacyPolicy
-    url: https://www.ceps.eu/privacy-policy/
+    url: https://www.ceps.eu/about-ceps/data-privacy-policy/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    CEPS is a Brussels policy research institute whose product is publications and events, not
+    software: it runs no developer program, and the one machine-readable surface it used to
+    serve — the site-wide WordPress RSS feed at /feed/ — now answers HTTP 500 "No feed
+    available" and is Disallow'd in robots.txt, leaving the WordPress REST root the site itself
+    declares at /wp-json/ (also robots-disallowed, and honored unprobed) as the only programmatic
+    thing on the domain.
+  evidence:
+    - url: https://www.ceps.eu/feed/
+      status: 500
+    - url: https://www.ceps.eu/llms.txt
+      status: 404
+    - url: https://www.ceps.eu/.well-known/agent-card.json
+      status: 404
+    - url: https://www.ceps.eu/robots.txt
+      status: 200
+  checked: '2026-09-05'

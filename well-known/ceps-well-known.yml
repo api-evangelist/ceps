@@ -1,0 +1,136 @@
+generated: '2026-09-05'
+method: probed
+source: live HTTP probes of every host this record knows (2026-09-05)
+note: >-
+  Every named path missed on every host. NO WellKnown / SecurityTxt / APICatalog pointer is
+  emitted for this repo — a recorded absence is data, not a served surface. The apex ceps.eu
+  301-redirects the whole /.well-known/ surface to www.ceps.eu, where each path returns the
+  WordPress 404 template (~125 KB of HTML). The two non-well-known APIs.json paths (/apis.json,
+  /apis.yml) were answered by a Cloudflare "Just a moment..." managed challenge (HTTP 403,
+  ~5.7 KB), so their result is INCONCLUSIVE rather than a recorded absence — the origin never
+  saw the request.
+path_echo_control: passed
+soft_404_control:
+  path: /.well-known/ceps-negative-control-7f3ab91c.json
+  status: 404
+  bytes: 125792
+  verdict: >-
+    The host is not a catch-all — a path that cannot exist returned the same honest 404 the
+    named paths did, so no hit on this host could have been a path-echo false positive.
+hit_count: 0
+hosts:
+  - host: https://www.ceps.eu
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /.well-known/ucp.json
+        status: 404
+      - path: /.well-known/acp.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /apis.json
+        status: 403
+        note: Cloudflare managed challenge, not an origin response — inconclusive.
+      - path: /apis.yml
+        status: 403
+        note: Cloudflare managed challenge, not an origin response — inconclusive.
+  - host: https://ceps.eu
+    note: Apex host 301-redirects every /.well-known/ path to www.ceps.eu.
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+      - path: /.well-known/openid-configuration
+        status: 301
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+      - path: /.well-known/oauth-protected-resource
+        status: 301
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/ai-plugin.json
+        status: 301
+      - path: /.well-known/apis.json
+        status: 301
+      - path: /.well-known/ucp.json
+        status: 301
+      - path: /.well-known/acp.json
+        status: 301
+      - path: /.well-known/aauth-resource.json
+        status: 301
+      - path: /.well-known/agent-card.json
+        status: 301
+      - path: /.well-known/agent.json
+        status: 301
+      - path: /apis.json
+        status: 403
+      - path: /apis.yml
+        status: 403
+  - host: https://membership.ceps.eu
+    note: >-
+      CEPS membership subdomain, linked from the ceps.eu primary navigation as "Membership".
+      Serves its own WordPress 404 template (~105 KB) for every named path.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /.well-known/ucp.json
+        status: 404
+      - path: /.well-known/acp.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /apis.json
+        status: 403
+      - path: /apis.yml
+        status: 403
+other_hosts_seen:
+  - host: academy.ceps.eu
+    status: 403
+    note: Cloudflare managed challenge on the root; not probed further.
+  - host: annualreport.ceps.eu
+    status: 403
+    note: Cloudflare managed challenge on the root; not probed further.
+  - host: dei.ceps.eu
+    status: 403
+    note: Cloudflare managed challenge on the root; not probed further.
+  - host: helix.ceps.eu
+    status: 403
+    note: Cloudflare managed challenge on the root; not probed further.
+  - host: cdn.ceps.eu
+    status: 403
+    note: Asset CDN (WordPress uploads). Not a candidate discovery host.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
