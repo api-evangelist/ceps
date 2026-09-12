@@ -1,16 +1,16 @@
 ---
 kin_checks:
   slug: ceps
-  schema_version: 0.18.3
-  scored_at: '2026-09-05'
-  run_ts: 2026-09-05T144739
+  schema_version: 0.21.0
+  scored_at: '2026-09-12'
+  run_ts: 2026-09-12T080032
   note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.18.3.yml; counts below let you verify that.
+    in rubric/scoring-0.21.0.yml; counts below let you verify that.
   counts:
-    total: 132
-    earned: 9
-    partial: 5
-    missed: 77
+    total: 136
+    earned: 13
+    partial: 1
+    missed: 81
     na: 41
   checks:
   - id: multiple_apis
@@ -61,6 +61,10 @@ kin_checks:
     status: missed
   - id: status_page_present
     status: missed
+  - id: rate_limits_documented
+    status: missed
+  - id: rate_limits_rich
+    status: missed
   - id: deprecation_policy
     status: missed
   - id: security_disclosure
@@ -95,9 +99,9 @@ kin_checks:
     status: missed
   - id: agent_skill_present
     status: missed
-  - id: support_channel
+  - id: plans_present
     status: missed
-  - id: blog_present
+  - id: plans_multiple
     status: missed
   - id: pricing_link
     status: missed
@@ -105,9 +109,6 @@ kin_checks:
     status: missed
   - id: terms_of_service
     status: missed
-  - id: privacy_policy
-    status: missed
-    detail: pointer liveness 0.0
   - id: compliance_published
     status: missed
   - id: trust_center
@@ -120,9 +121,6 @@ kin_checks:
     status: missed
   - id: reg_terms_of_service
     status: missed
-  - id: reg_privacy_policy
-    status: missed
-    detail: pointer liveness 0.0
   - id: reg_compliance_published
     status: missed
   - id: reg_standards_conformance
@@ -132,6 +130,14 @@ kin_checks:
   - id: reg_consent_model
     status: missed
   - id: reg_certification_signal
+    status: missed
+  - id: upsert_outcome_discriminator
+    status: missed
+  - id: upsert_alternate_key
+    status: missed
+  - id: upsert_named
+    status: missed
+  - id: upsert_declared_conflict
     status: missed
   - id: spec_presence
     status: missed
@@ -169,18 +175,6 @@ kin_checks:
     status: missed
   - id: agentic_commerce
     status: missed
-  - id: rate_limits_documented
-    status: partial
-    earned: 2.0
-  - id: rate_limits_rich
-    status: partial
-    earned: 1.0
-  - id: plans_present
-    status: partial
-    earned: 2.0
-  - id: plans_multiple
-    status: partial
-    earned: 1.0
   - id: rate_limit_signal
     status: partial
     earned: 3.5

@@ -2,14 +2,13 @@
   "repo": "ceps",
   "feeds": [
     {
-      "source": "https://www.ceps.eu/feed/",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://www.ceps.eu/events/",
-      "error": "HTTPError"
+      "source": "https://www.ceps.eu/ceps-events/",
+      "feed_url": "https://www.ceps.eu/ceps-events/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-08-30T22:33:40Z",
+  "fetched": "2026-09-06T19:17:18Z",
   "post_count": 0
 }
