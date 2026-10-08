@@ -106,6 +106,12 @@ apis:
       HTTP 500. The old /events/ path returns the site 404 template with no
       redirect and has been corrected here.
 common:
+  - type: Plans
+    url: plans/ceps-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ceps-rate-limits.yml
+  - type: FinOps
+    url: finops/ceps-finops.yml
   - type: DomainSecurity
     url: security/ceps-domain-security.yml
   - type: Lifecycle
