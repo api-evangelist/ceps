@@ -1,4 +1,4 @@
-# CEPS (ceps)
+# CEPS (Centre for European Policy Studies)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,64 +64,105 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Founded in Brussels in 1983, the Centre for European Policy Studies (CEPS) is a leading independent think tank and forum for debate on EU affairs, with an exceptionally strong in-house research capacity and an extensive network of partner institutes. CEPS conducts rigorous, evidence-based policy research on European and global issues (Data Governance Act, Data Act, AI Act, climate, migration, financial markets) and disseminates its findings primarily through publications, events, and podcasts rather than a commercial API; programmatic access to CEPS output is primarily via public RSS, OPML feeds, and structured publication pages on ceps.eu.
+Founded in Brussels in 1983, the Centre for European Policy Studies (CEPS) is a leading independent think tank and forum for debate on EU affairs, with strong in-house research capacity and an extensive network of partner institutes. CEPS conducts evidence-based policy research on European and global issues (Data Governance Act, Data Act, AI Act, climate, energy, migration, trade, defence, financial markets) and disseminates it through publications, events, task forces and podcasts rather than through any programmatic interface. CEPS publishes no API, SDK or developer program, and as of 2026-09-05 has no working machine-readable surface: the RSS feed this record once pointed at returns HTTP 500 ("No feed available") and is robots-disallowed, and no OpenAPI, AsyncAPI, GraphQL SDL, MCP server, A2A agent card or /.well-known/ document exists on any ceps.eu host. Following CEPS now means the newsletter or the HTML listings on ceps.eu.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/ceps/refs/heads/main/apis.yml)
+**Areas:** Brussels · Data Governance · EU Policy · European Union · Policy Research · Publications · Research · Think Tank
 
-## Scope
+## CEPS (Centre for European Policy Studies) on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CEPS (Centre for European Policy Studies) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ceps/](https://apis.io/providers/ceps/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Think Tank, European Union, EU Policy, Policy Research, Brussels, Publications, Research, Data Governance, RSS
+- [CEPS Publications RSS / Content Feeds](https://apis.io/apis/ceps/ceps-publications-feed/) — CEPS publishes roughly 150 working papers, policy insights, reports and commentaries a year across some 20 policy topics, listed on the public publications…
+- [CEPS Events Listings](https://apis.io/apis/ceps/ceps-events/) — CEPS maintains a public calendar of policy events, conferences, task force meetings, roundtables and webinars at /ceps-events/, filterable by event type and…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-01-02
-- **Modified:** 2026-04-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-### CEPS Publications RSS / Content Feeds
-CEPS exposes its publications and news stream as RSS/Atom feeds that aggregators, knowledge management tools, and policy-monitoring platforms can consume.
+Authentication, trust centre, and vulnerability disclosure.
 
-**Human URL:** [https://www.ceps.eu/ceps-publications/](https://www.ceps.eu/ceps-publications/)
+- [Ceps Domain Security](https://apis.io/security/ceps/ceps-domain-security/)
 
-#### Tags
-- RSS, Atom, Publications, Content
+#### Plans and pricing (1)
 
-#### Properties
-- [Website](https://www.ceps.eu/ceps-publications/)
-- [RSS](https://www.ceps.eu/feed/)
-- [News](https://www.ceps.eu/news/)
+Published plans, tiers and prices.
 
-### CEPS Events Listings
-CEPS maintains a calendar of policy events, conferences, task force meetings, and webinars.
+- [Ceps Plans Pricing](https://apis.io/plans/ceps/ceps-plans-pricing/)
 
-**Human URL:** [https://www.ceps.eu/events/](https://www.ceps.eu/events/)
+#### Rate limits (1)
 
-#### Tags
-- Events, Calendar, Policy Forum, Webinars
+Published request limits.
 
-#### Properties
-- [Website](https://www.ceps.eu/events/)
-- [Feed](https://www.ceps.eu/feed/)
+- [Ceps Rate Limits](https://apis.io/rate-limits/ceps/ceps-rate-limits/)
 
-## Common Properties
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ceps Finops](https://apis.io/finops/ceps/ceps-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.ceps.eu/)
-- [About](https://www.ceps.eu/about-ceps/)
-- [Publications](https://www.ceps.eu/ceps-publications/)
-- [News](https://www.ceps.eu/news/)
-- [Events](https://www.ceps.eu/events/)
-- [RSS](https://www.ceps.eu/feed/)
-- [Knowledge4Policy](https://knowledge4policy.ec.europa.eu/organisation/ceps-centre-european-policy-studies_en)
+- [Support](https://www.ceps.eu/contact/)
+- [Blog](https://www.ceps.eu/ceps-latest/)
+- [Privacy policy](https://www.ceps.eu/about-ceps/data-privacy-policy/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 8.5** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 58.0 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 10.5 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 9.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ceps/](https://apis.io/providers/ceps/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CEPS (Centre for European Policy Studies): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ceps/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
